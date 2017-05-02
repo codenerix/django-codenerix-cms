@@ -1,0 +1,47 @@
+{% comment %}
+
+django-codenerix-cms
+
+Copyright 2017 Centrologic Computational Logistic Center S.L.
+
+Project URL : http://www.codenerix.com
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+{% endcomment %}
+
+<section class="c-layout-revo-slider c-layout-revo-slider-4">
+    <div class="tp-banner-container c-theme">
+        <div class="tp-banner rev_slider onclick" data-version="5.0">
+            <ul>
+                {% for element in slider_list %}
+                <li data-transition="fade" data-slotamount="1" data-masterspeed="1000" onclick="location.href='{{ element.url }}';">
+                    <img alt="" src="/media/{{element.image}}" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
+                    <div class="tp-caption customin customout" data-x="center" data-y="center" data-hoffset="" data-voffset="-30" data-speed="500" data-start="1000" data-transform_idle="o:1;" data-transform_in="rX:0.5;scaleX:0.75;scaleY:0.75;o:0;s:500;e:Back.easeInOut;" data-transform_out="rX:0.5;scaleX:0.75;scaleY:0.75;o:0;s:600;e:Back.easeInOut;" data-splitin="none" data-splitout="none" data-elementdelay="0.1" data-endelementdelay="0.1" data-endspeed="600">
+                        {% if element.show_title %}
+                        <h3 class="c-main-title-square c-font-55 c-font-bold c-font-center c-font-uppercase c-font-white c-block">
+                            {{ element.title }}
+                        </h3>
+                        {% endif %}
+                    </div>
+                    <div class="tp-caption lft" data-x="center" data-y="center" data-voffset="130" data-speed="900" data-start="2000" data-transform_idle="o:1;" data-transform_in="x:100;y:100;rX:120;scaleX:0.75;scaleY:0.75;o:0;s:900;e:Back.easeInOut;" data-transform_out="x:100;y:100;rX:120;scaleX:0.75;scaleY:0.75;o:0;s:900;e:Back.easeInOut;">
+                        <a href="{{ element.url }}">
+                            {{ element.button }}
+                        </a>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>
