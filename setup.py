@@ -42,6 +42,6 @@ setup(
     ],
     install_requires=[
         'django-codenerix',
-        'codenerix_extensions',
+        'django-codenerix-extensions',
     ]
 )
