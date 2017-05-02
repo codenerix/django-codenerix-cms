@@ -31,7 +31,7 @@ Quickstart
         'codenerix_cms',
     ]
 
-3. For use StaticPage, you must create a bridge inheriting from GenStaticPage, and implementing the methods:
+3. For use StaticPage, you must create a bridge inheriting from GenStaticPage, and implementing the methods::
 
     * CDNXCMS_get_fk_info_author: return a dictionary with the keys 'label' and 'related'.
         - label: label translated for the input
