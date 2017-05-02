@@ -19,8 +19,8 @@ setup(
     description='Codenerix CMS is a module that enables CODENERIX to set products on serveral platforms in a general manner.',
     long_description=README,
     url='https://github.com/centrologic/django-codenerix-extensions',
-    author='Juan Miguel Taboada Godoy <juanmi@centrologic.com>, Juan Soler Ruiz <soleronline@gmail.com>',
-    keywords=['django', 'codenerix', 'management', 'erp', 'crm', 'extensions', 'files', 'geo data', 'corparate image'],
+    author=", ".join(codenerix_cms.__authors__),
+    keywords=['django', 'codenerix', 'management', 'erp', 'crm', 'cms', 'sliders'],
     platforms=['OS Independent'],
     classifiers=[
         'Environment :: Web Environment',
