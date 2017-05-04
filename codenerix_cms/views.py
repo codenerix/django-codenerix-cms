@@ -130,7 +130,7 @@ class SliderElementCreate(MultiForm, GenCreate):
                     self.request.name_file = name_file
                     f[0].instance.name_file = name_file
             new_forms.append(f)
-        return super(SliderElementUpdate, self).form_valid(form, new_forms)
+        return super(SliderElementCreate, self).form_valid(form, new_forms)
 
 
 class SliderElementCreateModal(GenCreateModal, SliderElementCreate):
