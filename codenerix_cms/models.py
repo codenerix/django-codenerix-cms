@@ -406,11 +406,16 @@ class ABSTRACT_GenStaticPage(models.Model):
         abstract = True
 
 
+class StaticPageAuthor(CodenerixModel):
+    pass
+
+
 class StaticPage(CodenerixModel):
 
     class CodenerixMeta:
         abstract = ABSTRACT_GenStaticPage
 
+    author = models.ForeignKey(StaticPageAuthor, related_name="staticpages", blank=True, null=True)
     status = models.CharField(_('Status'), max_length=150, blank=False, null=False, choices=STATUS_CHOICES, default=CHOICE_DRAFT)
     template = models.ForeignKey(TemplateStaticPage, related_name="staticpages", blank=False, null=False)
 
@@ -445,9 +450,9 @@ class StaticPage(CodenerixModel):
             getattr(self, lang_code.lower()).update(tiles)
 
 
-# customers
-class GenStaticPage(GenInterface, ABSTRACT_GenStaticPage):  # META: Abstract class
-    static_page = models.OneToOneField(StaticPage, related_name='external', verbose_name=_("Static Page"), null=True, on_delete=models.SET_NULL, blank=True)
+# author
+class GenStaticPageAuthor(GenInterface, ABSTRACT_GenStaticPage):  # META: Abstract class
+    author = models.OneToOneField(StaticPageAuthor, related_name='external', verbose_name=_("Static Page"), null=True, on_delete=models.SET_NULL, blank=True)
 
     class Meta:
         abstract = True
