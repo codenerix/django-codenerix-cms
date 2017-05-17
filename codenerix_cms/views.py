@@ -347,22 +347,6 @@ class StaticPageCreate(MultiForm, GenCreate):
     form_class = StaticPageForm
     forms = formsfull["StaticPage"]
 
-    def form_valid(self, form, forms):
-        # open transaction save.
-        with transaction.atomic():
-            sp = super(StaticPageCreate, self).form_valid(form, forms)
-            # get bridge model
-            model_bridge = self.model._meta.get_field('external').related_model
-            # get name final field
-            name_related = model_bridge.CDNXCMS_get_name_related()
-            # initial bridge model
-            autor = model_bridge(**{
-                'static_page': self.object,
-                '{}_id'.format(name_related): int(form.cleaned_data['codenerix_external_field'])
-            })
-            autor.save()
-            return sp
-
 
 class StaticPageCreateModal(GenCreateModal, StaticPageCreate):
     pass
@@ -372,35 +356,6 @@ class StaticPageUpdate(MultiForm, GenUpdate):
     model = StaticPage
     form_class = StaticPageForm
     forms = formsfull["StaticPage"]
-
-    def dispatch(self, *args, **kwargs):
-        r = super(StaticPageUpdate, self).dispatch(*args, **kwargs)
-
-        # get bridge model
-        model_bridge = self.model._meta.get_field('external').related_model
-        author = model_bridge.objects.get(static_page=self.object)
-        self.initial['codenerix_external_field'] = author.pk
-
-        return r
-
-    def form_valid(self, form, forms):
-        # open transaction save.
-        with transaction.atomic():
-            sp = super(StaticPageUpdate, self).form_valid(form, forms)
-            # get bridge model
-            model_bridge = self.model._meta.get_field('external').related_model
-            # get name final field
-            name_related = model_bridge.CDNXCMS_get_name_related()
-            author = model_bridge.objects.get(static_page=self.object)
-            name_related_id = '{}_id'.format(name_related)
-            # value selected
-            value_related = int(form.cleaned_data['codenerix_external_field'])
-
-            if author.__dict__[name_related_id] != value_related:
-                # update value
-                setattr(author, name_related_id, value_related)
-                author.save()
-            return sp
 
 
 class StaticPageUpdateModal(GenUpdateModal, StaticPageUpdate):

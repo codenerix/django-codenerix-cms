@@ -25,7 +25,7 @@ from django.conf import settings
 
 from codenerix.forms import GenModelForm
 from codenerix.widgets import WysiwygAngularInput
-from codenerix_cms.models import Slider, SliderElement, StaticheaderElement, Staticheader, MODELS, StaticPage, TemplateStaticPage, extract_regex_cdnxtiler
+from codenerix_cms.models import Slider, SliderElement, StaticheaderElement, Staticheader, MODELS, StaticPage, TemplateStaticPage, extract_regex_cdnxtiler, StaticPageAuthor
 
 
 class SliderForm(GenModelForm):
@@ -182,21 +182,18 @@ class TemplateStaticPageForm(GenModelForm):
 
 
 class StaticPageForm(GenModelForm):
-    codenerix_external_field = forms.CharField(
-        label=StaticPage.foreignkey_external()['label'],
-    )
 
     class Meta:
         model = StaticPage
         exclude = []
         autofill = {
             'StaticPageForm_template': ['select', 3, 'CDNX_cms_templatestaticpage_foreign'],
-            'StaticPageForm_codenerix_external_field': ['select', 3, StaticPage.foreignkey_external()['related']],
+            # 'StaticPageForm_author': ['select', 3, StaticPageAuthor.foreignkey_external()['related']],
         }
 
     def __groups__(self):
         g = [(_('Details'), 12,
-            ['codenerix_external_field', 5],
+            ['author', 5],
             ['template', 5],
             ['status', 2],
         )
@@ -206,7 +203,7 @@ class StaticPageForm(GenModelForm):
     @staticmethod
     def __groups_details__():
         g = [(_('Details'),12,
-            ['codenerix_external_field', 5],
+            ['author', 5],
             ['template', 5],
             ['status', 2],
         )

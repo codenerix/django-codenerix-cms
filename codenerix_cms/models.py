@@ -400,21 +400,39 @@ class TemplateStaticPage(CodenerixModel):
         return res
 
 
-class ABSTRACT_GenStaticPage(models.Model):
+class ABSTRACT_GenStaticPageAuthor(models.Model):
 
     class Meta:
         abstract = True
 
 
 class StaticPageAuthor(CodenerixModel):
-    pass
+    class CodenerixMeta:
+        abstract = ABSTRACT_GenStaticPageAuthor
+
+    def __unicode__(self):
+        if hasattr(self, 'external'):
+            return u"{}".format(smart_text(self.external.CDNXCMS_get_summary()))
+        else:
+            return _('No data!')
+
+    def __fields__(self, info):
+        fields = []
+        external_fields = get_external_method(StaticPageAuthor, '__fields_staticpage__', info)
+        for (external_path, label) in external_fields:
+            fields.append(("external__{}".format(external_path), label), )
+        
+        return fields
+
+    @staticmethod
+    def foreignkey_external():
+        bridge = get_external_method(StaticPageAuthor, GenStaticPageAuthor.CodenerixMeta.force_methods['foreignkey_author'][0])
+        if bridge is None:
+            raise IOError("No bridge found with StaticPageAuthor, you should use GenStaticPageAuthor on your model to link to this one! If you are not willing to use this feature, please include in your urls.py only the URLs you need for your purpose")
+        return bridge
 
 
 class StaticPage(CodenerixModel):
-
-    class CodenerixMeta:
-        abstract = ABSTRACT_GenStaticPage
-
     author = models.ForeignKey(StaticPageAuthor, related_name="staticpages", blank=True, null=True)
     status = models.CharField(_('Status'), max_length=150, blank=False, null=False, choices=STATUS_CHOICES, default=CHOICE_DRAFT)
     template = models.ForeignKey(TemplateStaticPage, related_name="staticpages", blank=False, null=False)
@@ -424,18 +442,8 @@ class StaticPage(CodenerixModel):
         fields = []
         fields.append(('{}__slug'.format(lang), _('Slug'), 100))
         fields.append(('status', _('Status'), 100))
-        external_fields = get_external_method(StaticPage, '__fields_staticpage__', info)
-        for (external_path, label) in external_fields:
-            fields.append("external__{}".format(external_path), label)
-        
+        fields.append(('author', _('Author'), 100))
         return fields
-
-    @staticmethod
-    def foreignkey_external():
-        bridge = get_external_method(StaticPage, GenStaticPage.CodenerixMeta.force_methods['foreignkey_author'][0])
-        if bridge is None:
-            raise IOError("No bridge found with StaticPage, you should use GenStaticPage on your model to link to this one! If you are not willing to use this feature, please include in your urls.py only the URLs you need for your purpose")
-        return bridge
 
     def __unicode__(self):
         return u"{} ({})".format(smart_text(self.template), self.status)
@@ -453,17 +461,26 @@ class StaticPage(CodenerixModel):
 
 
 # author
-class GenStaticPageAuthor(GenInterface, ABSTRACT_GenStaticPage):  # META: Abstract class
-    author = models.OneToOneField(StaticPageAuthor, related_name='external', verbose_name=_("Static Page"), null=True, on_delete=models.SET_NULL, blank=True)
+class GenStaticPageAuthor(GenInterface, ABSTRACT_GenStaticPageAuthor):  # META: Abstract class
+    author = models.OneToOneField(StaticPageAuthor, related_name='external', verbose_name=_("Author"), null=True, on_delete=models.SET_NULL, blank=True)
 
-    class Meta:
+    class Meta(GenInterface.Meta, ABSTRACT_GenStaticPageAuthor.Meta):
         abstract = True
 
     class CodenerixMeta:
         force_methods = {
             'foreignkey_author': ('CDNXCMS_get_fk_info_author', _('---')),
             'get_name_related': ('CDNXCMS_get_name_related', _('---')),
+            'get_summary': ('CDNXCMS_get_summary', ),
         }
+
+    def save(self, *args, **kwards):
+        if hasattr(self, 'author') and self.author is None:
+            author = StaticPageAuthor()
+            author.save()
+            self.author = author
+
+        return super(GenStaticPageAuthor, self).save(*args, **kwards)
 
 
 MODELS = [
