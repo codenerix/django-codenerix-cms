@@ -36,5 +36,5 @@ def cdnx_tiler(context, field):
 
 
 @register.simple_tag(takes_context=True)
-def cdnx_tiler_type(*args, **kwargs):
+def cdnx_tiler_type(context, json_tiler_type):
     return ""
