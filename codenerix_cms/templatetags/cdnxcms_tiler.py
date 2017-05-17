@@ -17,21 +17,24 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
+import json
 from django import template
-
-from codenerix_cms.templatetags_tiler import cdnx_tiler, cdnx_tiler_type
-
-
-def fbuilder2(f):
-    return lambda arg1, arg2: f(arg1, arg2)
-
-
-def fbuilderN(f):
-    return lambda *args, **kwargs: f(*args, **kwargs)
+from django.utils.safestring import mark_safe
 
 
 register = template.Library()
 
-register.simple_tag(fbuilder2(cdnx_tiler), takes_context=True, name='cdnx_tiler')
-register.simple_tag(fbuilderN(cdnx_tiler_type), name='cdnx_tiler_type')
+
+@register.simple_tag(takes_context=True)
+def cdnx_tiler(context, field):
+    res = ""
+    if 'tiles' in context:
+        tiles = json.loads(context['tiles'])
+        if field in tiles:
+            res = tiles[field]['value']
+    return mark_safe(res)
+
+
+@register.simple_tag(takes_context=True)
+def cdnx_tiler_type(*args, **kwargs):
+    return ""
