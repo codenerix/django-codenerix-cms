@@ -419,8 +419,10 @@ class StaticPage(CodenerixModel):
         fields = []
         fields.append(('{}__slug'.format(lang), _('Slug'), 100))
         fields.append(('status', _('Status'), 100))
-        fields = get_external_method(StaticPage, '__fields_staticpage__', info, fields)
-
+        external_fields = get_external_method(StaticPage, '__fields_staticpage__', info)
+        for (external_path, label) in external_fields:
+            fields.append("external__{}".format(external_path), label)
+        
         return fields
 
     @staticmethod
