@@ -34,8 +34,8 @@ from django.conf import settings
 from codenerix.multiforms import MultiForm
 from codenerix.views import GenList, GenCreate, GenCreateModal, GenUpdate, GenUpdateModal, GenDelete, GenDetail, GenForeignKey
 
-from codenerix_cms.models import Slider, SliderElement, StaticheaderElement, Staticheader, StaticPage, TemplateStaticPage, MODELS
-from codenerix_cms.forms import SliderForm, SliderElementForm, StaticheaderForm, StaticheaderElementForm, StaticPageForm, TemplateStaticPageForm
+from codenerix_cms.models import Slider, SliderElement, StaticheaderElement, Staticheader, StaticPage, StaticPageAuthor, TemplateStaticPage, MODELS
+from codenerix_cms.forms import SliderForm, SliderElementForm, StaticheaderForm, StaticheaderElementForm, StaticPageForm, StaticPageAuthorForm, TemplateStaticPageForm
 
 register = template.Library()
 
@@ -364,6 +364,37 @@ class StaticPageUpdateModal(GenUpdateModal, StaticPageUpdate):
 
 class StaticPageDelete(GenDelete):
     model = StaticPage
+
+
+# ###########################################
+# StaticPageAuthor
+class StaticPageAuthorList(GenList):
+    model = StaticPageAuthor
+    extra_context = {'menu': ['StaticPageAuthor', 'people'], 'bread': [_('StaticPageAuthor'), _('People')]}
+
+
+class StaticPageAuthorCreate(GenCreate):
+    model = StaticPageAuthor
+    form_class = StaticPageAuthorForm
+    hide_foreignkey_button = True
+
+
+class StaticPageAuthorCreateModal(GenCreateModal, StaticPageAuthorCreate):
+    pass
+
+
+class StaticPageAuthorUpdate(GenUpdate):
+    model = StaticPageAuthor
+    form_class = StaticPageAuthorForm
+    hide_foreignkey_button = True
+
+
+class StaticPageAuthorUpdateModal(GenUpdateModal, StaticPageAuthorUpdate):
+    pass
+
+
+class StaticPageAuthorDelete(GenDelete):
+    model = StaticPageAuthor
 
 
 # ###########################################

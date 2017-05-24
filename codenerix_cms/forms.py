@@ -211,6 +211,32 @@ class StaticPageForm(GenModelForm):
         return g
 
 
+class StaticPageAuthorForm(GenModelForm):
+
+    class Meta:
+        model = StaticPageAuthor
+        exclude = []
+
+#    def __groups__(self):
+#        g = [(_('Details'), 12,
+#            ['author', 5],
+#            ['template', 5],
+#            ['status', 2],
+#        )
+#        ]
+#        return g
+    
+#    @staticmethod
+#    def __groups_details__():
+#        g = [(_('Details'),12,
+#            ['author', 5],
+#            ['template', 5],
+#            ['status', 2],
+#        )
+#        ]
+#        return g
+
+
 query = ""
 forms_dyn = []
 for info in MODELS:

@@ -26,6 +26,7 @@ from codenerix_cms.views import \
     StaticheaderList, StaticheaderCreate, StaticheaderCreateModal, StaticheaderUpdate, StaticheaderUpdateModal, StaticheaderDelete, StaticheaderDetails, \
     StaticheaderElementSubList, StaticheaderElementCreateModal, StaticheaderElementUpdateModal, StaticheaderElementDelete, \
     StaticPageList, StaticPageCreate, StaticPageCreateModal, StaticPageUpdate, StaticPageUpdateModal, StaticPageDelete, \
+    StaticPageAuthorList, StaticPageAuthorCreate, StaticPageAuthorCreateModal, StaticPageAuthorUpdate, StaticPageAuthorUpdateModal, StaticPageAuthorDelete, \
     TemplateStaticPageList, TemplateStaticPageCreate, TemplateStaticPageCreateModal, TemplateStaticPagePageUpdate, TemplateStaticPageUpdateModal, TemplateStaticPageDelete, TemplateStaticPageForeign
 # SliderElementDetailsModal, \
 # StaticheaderElementDetailsModal, \
@@ -71,6 +72,14 @@ urlpatterns = [
     url(r'^staticpages/(?P<pk>\w+)/edit$', StaticPageUpdate.as_view(), name='CDNX_cms_staticpages_edit'),
     url(r'^staticpages/(?P<pk>\w+)/editmodal$', StaticPageUpdateModal.as_view(), name='CDNX_cms_staticpages_editmodal'),
     url(r'^staticpages/(?P<pk>\w+)/delete$', StaticPageDelete.as_view(), name='CDNX_cms_staticpages_delete'),
+
+    url(r'^staticpageauthors$', StaticPageAuthorList.as_view(), name='CDNX_cms_staticpageauthors_list'),
+    url(r'^staticpageauthors/add$', StaticPageAuthorCreate.as_view(), name='CDNX_cms_staticpageauthors_add'),
+    url(r'^staticpageauthors/addmodal$', StaticPageAuthorCreateModal.as_view(), name='CDNX_cms_staticpageauthors_addmodal'),
+    url(r'^staticpageauthors/(?P<pk>\w+)/edit$', StaticPageAuthorUpdate.as_view(), name='CDNX_cms_staticpageauthors_edit'),
+    url(r'^staticpageauthors/(?P<pk>\w+)/editmodal$', StaticPageAuthorUpdateModal.as_view(), name='CDNX_cms_staticpageauthors_editmodal'),
+    url(r'^staticpageauthors/(?P<pk>\w+)/delete$', StaticPageAuthorDelete.as_view(), name='CDNX_cms_staticpageauthors_delete'),
+
     
     url(r'^templatestaticpages$', TemplateStaticPageList.as_view(), name='CDNX_cms_templatestaticpages_list'),
     url(r'^templatestaticpages/add$', TemplateStaticPageCreate.as_view(), name='CDNX_cms_templatestaticpages_add'),
