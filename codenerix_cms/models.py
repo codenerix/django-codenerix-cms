@@ -416,6 +416,9 @@ class StaticPageAuthor(CodenerixModel):
         else:
             return _('No data!')
 
+    def __str__(self):
+        return self.__unicode__()
+
     def __fields__(self, info):
         fields = []
         external_fields = get_external_method(StaticPageAuthor, '__fields_staticpage__', info)
