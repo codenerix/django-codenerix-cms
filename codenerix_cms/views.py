@@ -276,7 +276,7 @@ class StaticheaderElementCreate(MultiForm, GenCreate):
 
         try:
             return super(StaticheaderElementCreate, self).form_valid(form, new_forms)
-        except ValidationError, e:
+        except ValidationError as e:
             errors = form._errors.setdefault("public", ErrorList())
             errors.append(e)
             return super(StaticheaderElementCreate, self).form_invalid(form, [tform[0] for tform in forms], 1, 0)
@@ -316,7 +316,7 @@ class StaticheaderElementUpdateModal(MultiForm, GenUpdateModal):
             
         try:
             return super(StaticheaderElementUpdateModal, self).form_valid(form, new_forms)
-        except ValidationError, e:
+        except ValidationError as e:
             errors = form._errors.setdefault("public", ErrorList())
             errors.append(e)
             return super(StaticheaderElementUpdateModal, self).form_invalid(form, [tform[0] for tform in forms], 1, 0)
