@@ -45,8 +45,7 @@ for info in MODELS:
     field = info[0]
     model = info[1]
     formsfull[model] = [(None, None, None)]
-    for lang in settings.LANGUAGES:
-        lang_code = lang[0]
+    for lang_code in settings.LANGUAGES_DATABASES:
         query = "from codenerix_cms.models import {}Text{}\n".format(model, lang_code.upper())
         query += "from codenerix_cms.forms import {}TextForm{}".format(model, lang_code.upper())
         exec(query)
@@ -66,6 +65,7 @@ class SliderList(GenList):
 
 class SliderCreate(GenCreate):
     model = Slider
+    show_details = True
     form_class = SliderForm
 
 
@@ -75,6 +75,7 @@ class SliderCreateModal(GenCreateModal, SliderCreate):
 
 class SliderUpdate(GenUpdate):
     model = Slider
+    show_details = True
     form_class = SliderForm
 
 
@@ -238,8 +239,7 @@ class StaticheaderDetails(GenDetail):
 # StaticheaderElement
 
 static_staticheader_formsfull = [(None, None, None)]
-for lang in settings.LANGUAGES:
-    lang_code = lang[0].upper()
+for lang_code in settings.LANGUAGES_DATABASES:
     static_staticheader_formsfull.append((eval("StaticheaderElementText{}".format(lang_code)), 'slider_element', None))
 
 
@@ -346,6 +346,7 @@ class StaticPageCreate(MultiForm, GenCreate):
     model = StaticPage
     form_class = StaticPageForm
     forms = formsfull["StaticPage"]
+    form_ngcontroller = "CDNXCMSFormSliderCtrl"
 
 
 class StaticPageCreateModal(GenCreateModal, StaticPageCreate):
@@ -450,8 +451,7 @@ class TemplateStaticPageForeign(GenForeignKey):
         token = {}
         token['id'] = None
         token['label'] = '---------'
-        for lang in settings.LANGUAGES:
-            lang_code = lang[0]
+        for lang_code in settings.LANGUAGES_DATABASES:
             token['StaticPageForm{}_tiles'.format(lang_code.upper())] = '{}'
         answer['rows'].append(token)
 
@@ -468,8 +468,7 @@ class TemplateStaticPageForeign(GenForeignKey):
                 tiles[key] = {'value': '', 'type': tile_base[key], 'deleted': False}
 
             # Set all tiles
-            for lang in settings.LANGUAGES:
-                lang_code = lang[0]
+            for lang_code in settings.LANGUAGES_DATABASES:
                 token['StaticPageTextForm{}_tiles:__JSON_DATA__'.format(lang_code.upper())] = json.dumps(tiles)
             answer['rows'].append(token)
 

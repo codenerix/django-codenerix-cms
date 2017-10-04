@@ -34,8 +34,7 @@ admin.site.register(TemplateStaticPage)
 
 for info in MODELS:
     model = info[1]
-    for lang in settings.LANGUAGES:
-        lang_code = lang[0].upper()
+    for lang_code in settings.LANGUAGES_DATABASES:
         query = "from codenerix_cms.models import {}Text{}\n".format(model, lang_code)
         query += "admin.site.register({}Text{})\n".format(model, lang_code)
         exec(query)

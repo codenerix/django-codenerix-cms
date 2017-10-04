@@ -33,7 +33,7 @@ from django.core.exceptions import ValidationError
 
 from codenerix.models import CodenerixModel, GenInterface
 from codenerix_extensions.files.models import GenImageFileNull
-from codenerix_extensions.helpers import get_external_method
+from codenerix_extensions.helpers import get_external_method, get_language_database
 
 from codenerix.fields import MultiBlockWysiwygField
 
@@ -441,10 +441,10 @@ class StaticPage(CodenerixModel):
     template = models.ForeignKey(TemplateStaticPage, related_name="staticpages", blank=False, null=False)
 
     def __fields__(self, info):
-        lang = settings.LANGUAGES_DATABASES[0].lower()
+        lang = get_language_database()
         fields = []
         fields.append(('{}__slug'.format(lang), _('Slug'), 100))
-        fields.append(('status', _('Status'), 100))
+        fields.append(('get_status_display', _('Status'), 100))
         fields.append(('author', _('Author'), 100))
         return fields
 
