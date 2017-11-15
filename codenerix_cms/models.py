@@ -41,15 +41,15 @@ from codenerix.fields import MultiBlockWysiwygField
 VALID_TYPE_TEMPLATE = ('image', 'string', 'video')
 
 HTML_FORMAT = (
-    (u'a', u'A'),
-    (u'b', u'B'),
-    (u'c', u'C'),
+    ('a', 'A'),
+    ('b', 'B'),
+    ('c', 'C'),
 )
 
 HEADER_HTML_FORMAT = (
-    (u'a', u'A'),
-    (u'b', u'B'),
-    (u'c', u'C'),
+    ('a', 'A'),
+    ('b', 'B'),
+    ('c', 'C'),
 )
 
 CHOICE_DRAFT = 'D'
@@ -108,15 +108,15 @@ class GenBaseText(CodenerixModel, GenImageFileNull):  # META: Abstract class
     description = models.TextField(_("Description"), null=True, blank=True)
     button = models.CharField(_("Button"), max_length=200, blank=True, null=True)
     url = models.CharField(_("URL"), max_length=500, blank=False, null=False)
-
-    class Meta:
+    
+    class Meta(CodenerixModel.Meta):
         abstract = True
 
-    def __unicode__(self):
+    def __str__(self):
         return u"{}".format(self.title)
 
-    def __str__(self):
-        return self.__unicode__()
+    def __unicode__(self):
+        return self.__str__()
 
     def __fields__(self, info):
         fields = []
@@ -130,14 +130,14 @@ class GenMainInfo(CodenerixModel):  # META: Abstract class
     identifier = models.CharField(_("Identifier"), max_length=200, blank=True, null=True, unique=True)
     public = models.BooleanField(_("Public"), default=False)
 
-    class Meta:
+    class Meta(CodenerixModel.Meta):
         abstract = True
 
-    def __unicode__(self):
+    def __str__(self):
         return u"{}".format(self.identifier)
 
-    def __str__(self):
-        return self.__unicode__()
+    def __unicode__(self):
+        return self.__str__()
 
     def __fields__(self, info):
         fields = []
@@ -151,14 +151,14 @@ class GenElementInfo(CodenerixModel):  # META: Abstract class
     show_title = models.BooleanField(_("Show tittle"), default=False)
     public = models.BooleanField(_("Public"), default=False)
 
-    class Meta:
+    class Meta(CodenerixModel.Meta):
         abstract = True
 
-    def __unicode__(self):
+    def __str__(self):
         return u"{}".format(self.order)
 
-    def __str__(self):
-        return self.__unicode__()
+    def __unicode__(self):
+        return self.__str__()
 
     def __fields__(self, info):
         fields = []
@@ -171,11 +171,11 @@ class GenElementInfo(CodenerixModel):  # META: Abstract class
 class Slider(GenMainInfo):
     default = models.BooleanField(_("Default"), default=False)
 
-    def __unicode__(self):
+    def __str__(self):
         return u"{}".format(self.identifier)
 
-    def __str__(self):
-        return self.__unicode__()
+    def __unicode__(self):
+        return self.__str__()
 
     def __fields__(self, info):
         fields = super(Slider, self).__fields__(info)
@@ -206,11 +206,11 @@ class Staticheader(GenMainInfo):
     num_elements = models.IntegerField(_("Number of columns"), blank=False, null=False, validators=[MaxValueValidator(4), MinValueValidator(1)])
     default = models.BooleanField(_("By default"), default=False)
 
-    def __unicode__(self):
+    def __str__(self):
         return u"{}".format(self.identifier)
 
-    def __str__(self):
-        return self.__unicode__()
+    def __unicode__(self):
+        return self.__str__()
 
     def __fields__(self, info):
         fields = super(Staticheader, self).__fields__(info)
@@ -262,14 +262,14 @@ class StaticPageText(CodenerixModel):  # META: Abstract class
     slug = models.CharField(_('slug'), max_length=200, blank=False, null=False, unique=True)
     tiles = MultiBlockWysiwygField(_('Tiles'), blank=True, null=False)
 
-    class Meta:
+    class Meta(CodenerixModel.Meta):
         abstract = True
 
-    def __unicode__(self):
+    def __str__(self):
         return u"{}".format(self.slug)
 
-    def __str__(self):
-        return self.__unicode__()
+    def __unicode__(self):
+        return self.__str__()
 
     def __fields__(self, info):
         fields = []
@@ -312,11 +312,11 @@ class TemplateStaticPage(CodenerixModel):
     # template = BootstrapWysiwygField(_('Template'), blank=False, null=False)
     tile = models.TextField(_('Tile'), blank=False, null=False)
 
-    def __unicode__(self):
+    def __str__(self):
         return u"{}".format(smart_text(self.name))
 
-    def __str__(self):
-        return self.__unicode__()
+    def __unicode__(self):
+        return self.__str__()
 
     def __fields__(self, info):
         fields = []
@@ -402,7 +402,7 @@ class TemplateStaticPage(CodenerixModel):
 
 class ABSTRACT_GenStaticPageAuthor(models.Model):
 
-    class Meta:
+    class Meta(CodenerixModel.Meta):
         abstract = True
 
 
@@ -410,14 +410,14 @@ class StaticPageAuthor(CodenerixModel):
     class CodenerixMeta:
         abstract = ABSTRACT_GenStaticPageAuthor
 
-    def __unicode__(self):
+    def __str__(self):
         if hasattr(self, 'external'):
             return u"{}".format(smart_text(self.external.CDNXCMS_get_summary()))
         else:
             return _('No data!')
 
-    def __str__(self):
-        return self.__unicode__()
+    def __unicode__(self):
+        return self.__str__()
 
     def __fields__(self, info):
         fields = []
@@ -448,11 +448,11 @@ class StaticPage(CodenerixModel):
         fields.append(('author', _('Author'), 100))
         return fields
 
-    def __unicode__(self):
+    def __str__(self):
         return u"{} ({})".format(smart_text(self.template), self.status)
 
-    def __str__(self):
-        return self.__unicode__()
+    def __unicode__(self):
+        return self.__str__()
 
     def update(self, tiles=None, *args, **kwargs):
         # I make sure to have tiles.
