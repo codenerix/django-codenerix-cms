@@ -414,7 +414,7 @@ class StaticPageAuthor(CodenerixModel):
         if hasattr(self, 'external'):
             return u"{}".format(smart_text(self.external.CDNXCMS_get_summary()))
         else:
-            return _('No data!')
+            return u"{}".format(smart_text(_('No data!')))
 
     def __unicode__(self):
         return self.__str__()

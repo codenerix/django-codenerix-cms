@@ -34,19 +34,24 @@ class SliderForm(GenModelForm):
         exclude = []
 
     def __groups__(self):
-        return [(_(u'Grupo'), 12,
-            ['identifier', 6],
-            ['public', 3],
-            ['default', 3],
-        )
+        return [
+            (
+                _(u'Grupo'), 12,
+                ['identifier', 6],
+                ['public', 3],
+                ['default', 3],
+            )
         ]
 
     @staticmethod
     def __groups_details__():
-        return [(_(u'Grupo'), 12,
-            ['identifier', 6],
-            ['public', 6],
-            ['default', 6],)
+        return [
+            (
+                _(u'Grupo'), 12,
+                ['identifier', 6],
+                ['public', 6],
+                ['default', 6],
+            )
         ]
 
 
@@ -192,21 +197,25 @@ class StaticPageForm(GenModelForm):
         }
 
     def __groups__(self):
-        g = [(_('Details'), 12,
-            ['author', 5],
-            ['template', 5],
-            ['status', 2],
-        )
+        g = [
+            (
+                _('Details'), 12,
+                ['author', 5],
+                ['template', 5],
+                ['status', 2],
+            )
         ]
         return g
     
     @staticmethod
     def __groups_details__():
-        g = [(_('Details'),12,
-            ['author', 5],
-            ['template', 5],
-            ['status', 2],
-        )
+        g = [
+            (
+                _('Details'), 12,
+                ['author', 5],
+                ['template', 5],
+                ['status', 2],
+            )
         ]
         return g
 
