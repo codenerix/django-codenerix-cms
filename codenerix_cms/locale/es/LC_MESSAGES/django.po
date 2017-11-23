@@ -8,236 +8,235 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-12 16:13+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2017-11-23 10:14+0100\n"
+"PO-Revision-Date: 2017-11-23 10:04-0015\n"
+"Last-Translator: b'nombe apellidos <jsoler@centrologic.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Translated-Using: django-rosetta 0.7.13\n"
 
-#: codenerix_cms/forms.py:37 codenerix_cms/forms.py:46
-#: codenerix_cms/forms.py:106 codenerix_cms/forms.py:117
+#: codenerix_cms/forms.py:39 codenerix_cms/forms.py:50
+#: codenerix_cms/forms.py:111 codenerix_cms/forms.py:122
 msgid "Grupo"
-msgstr ""
+msgstr "Grupo"
 
-#: codenerix_cms/forms.py:73 codenerix_cms/forms.py:86
-#: codenerix_cms/forms.py:133 codenerix_cms/models.py:191
+#: codenerix_cms/forms.py:78 codenerix_cms/forms.py:91
+#: codenerix_cms/forms.py:138 codenerix_cms/models.py:191
 msgid "Slider"
-msgstr ""
+msgstr "Slider"
 
-#: codenerix_cms/forms.py:142 codenerix_cms/forms.py:157
-#: codenerix_cms/forms.py:167 codenerix_cms/forms.py:195
-#: codenerix_cms/forms.py:205
+#: codenerix_cms/forms.py:147 codenerix_cms/forms.py:162
+#: codenerix_cms/forms.py:172 codenerix_cms/forms.py:202
+#: codenerix_cms/forms.py:214
 msgid "Details"
-msgstr ""
+msgstr "Detalles"
 
 #: codenerix_cms/models.py:60
 msgid "Draft"
-msgstr ""
+msgstr "Borrador"
 
 #: codenerix_cms/models.py:61 codenerix_cms/models.py:131
 #: codenerix_cms/models.py:145 codenerix_cms/models.py:152
 #: codenerix_cms/models.py:167
 msgid "Public"
-msgstr ""
+msgstr "Público"
 
 #: codenerix_cms/models.py:62
 msgid "Pending"
-msgstr ""
+msgstr "Pendiente"
 
 #: codenerix_cms/models.py:107 codenerix_cms/models.py:123
 #: codenerix_cms/models.py:323
 msgid "Title"
-msgstr ""
+msgstr "Título"
 
 #: codenerix_cms/models.py:108
 msgid "Description"
-msgstr ""
+msgstr "Descripción"
 
 #: codenerix_cms/models.py:109 codenerix_cms/models.py:124
 msgid "Button"
-msgstr ""
+msgstr "Botón"
 
 #: codenerix_cms/models.py:110 codenerix_cms/models.py:125
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: codenerix_cms/models.py:130 codenerix_cms/models.py:144
 msgid "Identifier"
-msgstr ""
+msgstr "Identificador"
 
 #: codenerix_cms/models.py:150 codenerix_cms/models.py:165
 msgid "Order"
-msgstr ""
+msgstr "Orden"
 
-#: codenerix_cms/models.py:151
-msgid "Show tittle"
-msgstr ""
-
-#: codenerix_cms/models.py:166
+#: codenerix_cms/models.py:151 codenerix_cms/models.py:166
 msgid "Show title"
-msgstr ""
+msgstr "Mostrar título"
 
 #: codenerix_cms/models.py:172 codenerix_cms/models.py:182
 msgid "Default"
-msgstr ""
+msgstr "Por defecto"
 
 #: codenerix_cms/models.py:187 codenerix_cms/models.py:205
 msgid "HtmlFormat"
-msgstr ""
+msgstr "Formato HTML"
 
 #: codenerix_cms/models.py:188 codenerix_cms/models.py:197
 msgid "New price"
-msgstr ""
+msgstr "Nuevo precio"
 
 #: codenerix_cms/models.py:189 codenerix_cms/models.py:198
 msgid "Old price"
-msgstr ""
+msgstr "Precio antiguo"
 
 #: codenerix_cms/models.py:190 codenerix_cms/models.py:199
 msgid "Discount"
-msgstr ""
+msgstr "Descuento"
 
 #: codenerix_cms/models.py:196
 msgid "Html format"
-msgstr ""
+msgstr "formato HTML"
 
 #: codenerix_cms/models.py:206
 msgid "Number of columns"
-msgstr ""
+msgstr "Número de columnas"
 
 #: codenerix_cms/models.py:207 codenerix_cms/models.py:219
 msgid "By default"
-msgstr ""
+msgstr "Por defecto"
 
 #: codenerix_cms/models.py:217
 msgid "Identificador"
-msgstr ""
+msgstr "Identificador"
 
 #: codenerix_cms/models.py:218
 msgid "Number columns"
-msgstr ""
+msgstr "Número de columnas"
 
 #: codenerix_cms/models.py:229
 msgid "Static Header"
-msgstr ""
+msgstr "Cabecera Estática"
 
 #: codenerix_cms/models.py:234
 msgid "Too many elements marked as \"public\". Unpublish some"
 msgstr ""
+"Demasiados elementos marcados como 'Público'. Cambie el estado de alguno"
 
 #: codenerix_cms/models.py:262
 msgid "slug"
-msgstr ""
+msgstr "url amigable"
 
 #: codenerix_cms/models.py:263
 msgid "Tiles"
-msgstr ""
+msgstr "Mosaico"
 
 #: codenerix_cms/models.py:276 codenerix_cms/models.py:446
 msgid "Slug"
-msgstr ""
+msgstr "URL amigable"
 
 #: codenerix_cms/models.py:310
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 #: codenerix_cms/models.py:311
 msgid "Template"
-msgstr ""
+msgstr "Plantilla"
 
 #: codenerix_cms/models.py:313
 msgid "Tile"
-msgstr ""
+msgstr "Mosaico"
 
 #: codenerix_cms/models.py:398
 msgid "Your cdnx_tiler_type is missing or bad formed."
-msgstr ""
+msgstr "Tu cdnx_tiler_type no encontrado o con formato erróneo"
 
 #: codenerix_cms/models.py:417
 msgid "No data!"
-msgstr ""
+msgstr "Sin datos"
 
 #: codenerix_cms/models.py:440 codenerix_cms/models.py:447
 msgid "Status"
-msgstr ""
+msgstr "Estado"
 
 #: codenerix_cms/models.py:448 codenerix_cms/models.py:468
 msgid "Author"
-msgstr ""
+msgstr "Autor"
 
 #: codenerix_cms/models.py:475 codenerix_cms/models.py:476
 msgid "---"
-msgstr ""
+msgstr "---"
 
 #: codenerix_cms/templatetags/cdnxcms_tiler_validator.py:47
 #, python-format
 msgid "Type %(tag)s  does not a allowed type. List of allowed are: %(valid)s"
 msgstr ""
+"El tipo %(tag)s no es un tipo permitido. La lista de tipos permitidos son: "
+"%(valid)s"
 
 #: codenerix_cms/templatetags/cdnxcms_tiler_validator.py:59
 #, python-format
 msgid "cdnx_tiler_type has wrong format: %(error)s"
-msgstr ""
+msgstr "cdnx_tiler_type tiene un formato incorrecto: %(error)s"
 
 #: codenerix_cms/templatetags/cdnxcms_tiler_validator.py:78
 #, python-format
 msgid "Field %(field)s has not been declared, I can see only: %(fields)s"
-msgstr ""
+msgstr "El campo %(field)s no ha sido declarado, solo puedo ver: %(fields)s"
 
 #: codenerix_cms/templatetags/cdnxcms_tiler_validator.py:82
 msgid "Any type has been declared."
-msgstr ""
+msgstr "Ningún tipo ha sido declarado"
 
-#: codenerix_cms/templatetags_tags.py:79
-#: codenerix_cms/templatetags_tags.py:161
+#: codenerix_cms/templatetags_tags.py:79 codenerix_cms/templatetags_tags.py:161
 msgid "Template not found"
-msgstr ""
+msgstr "Plantilla no encontrada"
 
 #: codenerix_cms/templatetags_tags.py:91
 msgid "Identifier don't found"
-msgstr ""
+msgstr "Identificador no encontrado"
 
 #: codenerix_cms/templatetags_tags.py:178
 msgid "Identifier dont found"
-msgstr ""
+msgstr "Identificador no encontrado"
 
-#: codenerix_cms/views.py:61
+#: codenerix_cms/views.py:60
 msgid "Slider Group"
-msgstr ""
+msgstr "Grupo de sliders"
 
-#: codenerix_cms/views.py:61
+#: codenerix_cms/views.py:60
 msgid "slider group"
-msgstr ""
+msgstr "grupo de sliders"
 
-#: codenerix_cms/views.py:95
+#: codenerix_cms/views.py:96
 msgid "Sliders"
-msgstr ""
+msgstr "Sliders"
 
-#: codenerix_cms/views.py:192
+#: codenerix_cms/views.py:193
 msgid "StaticheaderGroup"
-msgstr ""
+msgstr "Grupo de cabeceras estáticas"
 
-#: codenerix_cms/views.py:192 codenerix_cms/views.py:248
-#: codenerix_cms/views.py:342 codenerix_cms/views.py:373
-#: codenerix_cms/views.py:404
+#: codenerix_cms/views.py:193 codenerix_cms/views.py:248
+#: codenerix_cms/views.py:342 codenerix_cms/views.py:374
+#: codenerix_cms/views.py:405
 msgid "People"
-msgstr ""
+msgstr "Gente"
 
-#: codenerix_cms/views.py:228
+#: codenerix_cms/views.py:229
 msgid "Elements"
-msgstr ""
+msgstr "Elementos"
 
 #: codenerix_cms/views.py:248
 msgid "StaticheaderElement"
-msgstr ""
+msgstr "Elementos de cabecera estáticas"
 
-#: codenerix_cms/views.py:342 codenerix_cms/views.py:404
+#: codenerix_cms/views.py:342 codenerix_cms/views.py:405
 msgid "StaticPage"
-msgstr ""
+msgstr "Página estática"
 
-#: codenerix_cms/views.py:373
+#: codenerix_cms/views.py:374
 msgid "StaticPageAuthor"
-msgstr ""
+msgstr "Autor de páginas estáticas"

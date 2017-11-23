@@ -148,7 +148,7 @@ class GenMainInfo(CodenerixModel):  # META: Abstract class
 
 class GenElementInfo(CodenerixModel):  # META: Abstract class
     order = models.IntegerField(_("Order"), blank=False, null=False, unique=False)
-    show_title = models.BooleanField(_("Show tittle"), default=False)
+    show_title = models.BooleanField(_("Show title"), default=False)
     public = models.BooleanField(_("Public"), default=False)
 
     class Meta(CodenerixModel.Meta):
