@@ -108,7 +108,7 @@ class GenBaseText(CodenerixModel, GenImageFileNull):  # META: Abstract class
     description = models.TextField(_("Description"), null=True, blank=True)
     button = models.CharField(_("Button"), max_length=200, blank=True, null=True)
     url = models.CharField(_("URL"), max_length=500, blank=False, null=False)
-    
+
     class Meta(CodenerixModel.Meta):
         abstract = True
 
@@ -188,7 +188,7 @@ class SliderElement(GenElementInfo):
     new_price = models.CharField(_("New price"), max_length=200, blank=True, null=True)
     old_price = models.CharField(_("Old price"), max_length=200, blank=True, null=True)
     discount = models.CharField(_("Discount"), max_length=200, blank=True, null=True)
-    slider = models.ForeignKey(Slider, related_name="sliderelements", verbose_name=_("Slider"), blank=False, null=False)
+    slider = models.ForeignKey(Slider, related_name="sliderelements", verbose_name=_("Slider"), blank=False, null=False, on_delete=models.CASCADE)
 
     def __fields__(self, info):
         fields = super(SliderElement, self).__fields__(info)
@@ -226,7 +226,7 @@ class Staticheader(GenMainInfo):
 
 
 class StaticheaderElement(GenElementInfo):
-    frontheader = models.ForeignKey(Staticheader, related_name="staticheaderelements", verbose_name=_("Static Header"), blank=False, null=False)
+    frontheader = models.ForeignKey(Staticheader, related_name="staticheaderelements", verbose_name=_("Static Header"), blank=False, null=False, on_delete=models.CASCADE)
 
     def save(self, *args, **kwargs):
         if self.public:
@@ -424,7 +424,7 @@ class StaticPageAuthor(CodenerixModel):
         external_fields = get_external_method(StaticPageAuthor, '__fields_staticpage__', info)
         for (external_path, label) in external_fields:
             fields.append(("external__{}".format(external_path), label), )
-        
+
         return fields
 
     @staticmethod
@@ -436,9 +436,9 @@ class StaticPageAuthor(CodenerixModel):
 
 
 class StaticPage(CodenerixModel):
-    author = models.ForeignKey(StaticPageAuthor, related_name="staticpages", blank=True, null=True)
+    author = models.ForeignKey(StaticPageAuthor, related_name="staticpages", blank=True, null=True, on_delete=models.CASCADE)
     status = models.CharField(_('Status'), max_length=150, blank=False, null=False, choices=STATUS_CHOICES, default=CHOICE_DRAFT)
-    template = models.ForeignKey(TemplateStaticPage, related_name="staticpages", blank=False, null=False)
+    template = models.ForeignKey(TemplateStaticPage, related_name="staticpages", blank=False, null=False, on_delete=models.CASCADE)
 
     def __fields__(self, info):
         lang = get_language_database()
@@ -498,7 +498,7 @@ for info in MODELS:
     base_model = info[2]
     for lang_code in settings.LANGUAGES_DATABASES:
         query = "class {}Text{}({}):\n".format(model, lang_code, base_model)
-        query += "    {} = models.OneToOneField({}, blank=False, null=False, related_name='{}')\n".format(field, model, lang_code.lower())
+        query += "    {} = models.OneToOneField({}, blank=False, null=False, related_name='{}', on_delete=models.CASCADE)\n".format(field, model, lang_code.lower())
         if model == 'StaticPage':
 
             query += "    def save(self, *args, **kwargs): \n"
