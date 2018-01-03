@@ -21,7 +21,7 @@
 from django.db.models import F
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
-from django.shortcuts import render_to_response
+from django.shortcuts import render
 from django.template import TemplateDoesNotExist
 from django.template.loader import get_template
 from django.utils.translation import ugettext as _
@@ -84,7 +84,13 @@ def cdnx_slider(identifier, lang, template='codenerix_cms/slider.html', *args, *
         if slider_list:
             context = {}
             context['slider_list'] = slider_list
-            return mark_safe(render_to_response(template, context)._container[0])
+            return(
+                mark_safe(
+                    render(
+                        None, template_name=template, context=context, content_type="text/plain"
+                    )._container[0].decode("utf-8").replace('\n', '').replace('\t', '')
+                )
+            )
         else:
             return ''
     elif getattr(settings, 'DEBUG', False):
@@ -171,7 +177,13 @@ def cdnx_staticheader(identifier, lang, template='codenerix_cms/staticheader.htm
             }
 
             context['staticheader_list'] = staticheader_list
-            return mark_safe(render_to_response(template, context)._container[0])
+            return(
+                mark_safe(
+                    render(
+                        None, template_name=template, context=context, content_type="text/plain"
+                    )._container[0].decode("utf-8").replace('\n', '').replace('\t', '')
+                )
+            )
         else:
             return ''
     elif getattr(settings, 'DEBUG', False):

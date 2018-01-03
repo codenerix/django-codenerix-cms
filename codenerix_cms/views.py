@@ -126,8 +126,14 @@ class SliderElementCreate(MultiForm, GenCreate):
             if type(f[0]) != self.form_class:
                 name_form = str(type(forms[1][0])).split('.')[-1].replace("'", '').replace('>', '')
                 field_image = "{}_image".format(name_form)
-                if field_image in json.loads(self.request.body) and 'filename' in json.loads(self.request.body)[field_image]:
-                    name_file = json.loads(self.request.body)[field_image]['filename']
+
+                body = self.request.body
+                if type(self.request.body) == bytes:
+                    body = body.decode("utf-8")
+                body = json.loads(body)
+
+                if field_image in body and 'filename' in body[field_image]:
+                    name_file = body[field_image]['filename']
                     self.request.name_file = name_file
                     f[0].instance.name_file = name_file
             new_forms.append(f)
@@ -161,8 +167,14 @@ class SliderElementUpdate(MultiForm, GenUpdate):
             if type(f[0]) != self.form_class:
                 name_form = str(type(forms[1][0])).split('.')[-1].replace("'", '').replace('>', '')
                 field_image = "{}_image".format(name_form)
-                if field_image in json.loads(self.request.body) and 'filename' in json.loads(self.request.body)[field_image]:
-                    name_file = json.loads(self.request.body)[field_image]['filename']
+
+                body = self.request.body
+                if type(self.request.body) == bytes:
+                    body = body.decode("utf-8")
+                body = json.loads(body)
+                
+                if field_image in body and 'filename' in body[field_image]:
+                    name_file = body[field_image]['filename']
                     self.request.name_file = name_file
                     f[0].instance.name_file = name_file
             new_forms.append(f)
@@ -268,8 +280,14 @@ class StaticheaderElementCreate(MultiForm, GenCreate):
             if type(f[0]) != self.form_class:
                 name_form = str(type(forms[1][0])).split('.')[-1].replace("'", '').replace('>', '')
                 field_image = "{}_image".format(name_form)
-                if field_image in json.loads(self.request.body) and 'filename' in json.loads(self.request.body)[field_image]:
-                    name_file = json.loads(self.request.body)[field_image]['filename']
+
+                body = self.request.body
+                if type(self.request.body) == bytes:
+                    body = body.decode("utf-8")
+                body = json.loads(body)
+
+                if field_image in body and 'filename' in body[field_image]:
+                    name_file = body[field_image]['filename']
                     self.request.name_file = name_file
                     f[0].instance.name_file = name_file
             new_forms.append(f)
@@ -308,8 +326,14 @@ class StaticheaderElementUpdateModal(MultiForm, GenUpdateModal):
             if type(f[0]) != self.form_class:
                 name_form = str(type(forms[1][0])).split('.')[-1].replace("'", '').replace('>', '')
                 field_image = "{}_image".format(name_form)
-                if field_image in json.loads(self.request.body) and 'filename' in json.loads(self.request.body)[field_image]:
-                    name_file = json.loads(self.request.body)[field_image]['filename']
+                
+                body = self.request.body
+                if type(self.request.body) == bytes:
+                    body = body.decode("utf-8")
+                body = json.loads(body)
+
+                if field_image in body and 'filename' in body[field_image]:
+                    name_file = body[field_image]['filename']
                     self.request.name_file = name_file
                     f[0].instance.name_file = name_file
             new_forms.append(f)
