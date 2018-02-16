@@ -57,7 +57,7 @@ for info in MODELS:
 # Slider group
 class SliderList(GenList):
     model = Slider
-    extra_context = {'menu': ['SliderGroup', 'slidergroup'], 'bread': [_('Slider Group'), _('slider group')]}
+    extra_context = {'menu': ['cms', 'slidergroup'], 'bread': [_('CMS'), _('Slider group')]}
     # link_add = True
     # link_edit = True
     show_details = True
@@ -202,7 +202,7 @@ class SliderElementDetailsModal(GenDetailModal):
 # Staticheader
 class StaticheaderList(GenList):
     model = Staticheader
-    extra_context = {'menu': ['StaticheaderGroup', 'people'], 'bread': [_('StaticheaderGroup'), _('People')]}
+    extra_context = {'menu': ['cms', 'staticheaderGroup'], 'bread': [_('CMS'), _('StaticheaderGroup')]}
     show_details = True
     default_ordering = ["-public"]
 
@@ -257,7 +257,7 @@ for lang_code in settings.LANGUAGES_DATABASES:
 
 class StaticheaderElementSubList(GenList):
     model = StaticheaderElement
-    extra_context = {'menu': ['StaticheaderElement', 'people'], 'bread': [_('StaticheaderElement'), _('People')]}
+    extra_context = {'menu': ['cms', 'staticheaderelement'], 'bread': [_('CMS'), _('StaticheaderElement')]}
     show_details = False
     # json = False
     # template_model = "frontheader/frontheader_sublist.html"
@@ -363,7 +363,7 @@ class StaticheaderElementDetailsModal(GenDetailModal):
 # StaticPage
 class StaticPageList(GenList):
     model = StaticPage
-    extra_context = {'menu': ['StaticPage', 'people'], 'bread': [_('StaticPage'), _('People')]}
+    extra_context = {'menu': ['cms', 'staticpage'], 'bread': [_('CMS'), _('StaticPage')]}
 
 
 class StaticPageCreate(MultiForm, GenCreate):
@@ -395,7 +395,7 @@ class StaticPageDelete(GenDelete):
 # StaticPageAuthor
 class StaticPageAuthorList(GenList):
     model = StaticPageAuthor
-    extra_context = {'menu': ['StaticPageAuthor', 'people'], 'bread': [_('StaticPageAuthor'), _('People')]}
+    extra_context = {'menu': ['cms', 'staticpageauthor'], 'bread': [_('CMS'), _('StaticPageAuthor')]}
 
 
 class StaticPageAuthorCreate(GenCreate):
@@ -426,7 +426,7 @@ class StaticPageAuthorDelete(GenDelete):
 # StaticPage
 class TemplateStaticPageList(GenList):
     model = TemplateStaticPage
-    extra_context = {'menu': ['StaticPage', 'people'], 'bread': [_('StaticPage'), _('People')]}
+    extra_context = {'menu': ['cms', 'staticpage'], 'bread': [_('CMS'), _('StaticPage')]}
 
 
 class TemplateStaticPageCreate(GenCreate):
