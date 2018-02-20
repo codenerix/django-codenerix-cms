@@ -264,6 +264,11 @@ class {model}TextForm{lang}(GenModelForm):\n
             query += """widgets = {{\n
             'description': WysiwygAngularInput(),\n
         }}\n"""
+        elif model == "SliderElement":
+            query += """widgets = {{\n
+            'title': WysiwygAngularInput(),\n
+            'description': WysiwygAngularInput(),\n
+        }}\n"""
         query += """
     def __groups__(self):\n
         return [(_('Details'),12,"""
