@@ -18,7 +18,7 @@ setup(
     license='Apache License Version 2.0',
     description='Codenerix CMS is a module that enables CODENERIX to set products on serveral platforms in a general manner.',
     long_description=README,
-    url='https://github.com/centrologic/django-codenerix-cms',
+    url='https://github.com/codenerix/django-codenerix-cms',
     author=", ".join(codenerix_cms.__authors__),
     keywords=['django', 'codenerix', 'management', 'erp', 'crm', 'cms', 'sliders'],
     platforms=['OS Independent'],
