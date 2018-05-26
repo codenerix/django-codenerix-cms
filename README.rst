@@ -46,6 +46,8 @@ Documentation
 
 Coming soon... do you help us? `Codenerix <http://www.codenerix.com/>`_
 
+You can chat with us `here <https://goo.gl/NgpzBh>`_.
+
 *******
 Credits
 *******
