@@ -2,10 +2,10 @@
 django-codenerix-cms
 ====================
 
-Codenerix CMS is a module that enables `CODENERIX <http://www.codenerix.com/>`_ to set products on several platforms in a general manner
+Codenerix CMS is a module that enables `CODENERIX <https://www.codenerix.com/>`_ to set products on several platforms in a general manner
 
 .. image:: https://github.com/codenerix/django-codenerix/raw/master/codenerix/static/codenerix/img/codenerix.png
-    :target: http://www.codenerix.com
+    :target: https://www.codenerix.com
     :alt: Try our demo with Codenerix Cloud
 
 ****
@@ -44,7 +44,7 @@ Quickstart
 Documentation
 *************
 
-Coming soon... do you help us? `Codenerix <http://www.codenerix.com/>`_
+Coming soon... do you help us? `Codenerix <https://www.codenerix.com/>`_
 
 You can chat with us `here <https://goo.gl/NgpzBh>`_.
 
