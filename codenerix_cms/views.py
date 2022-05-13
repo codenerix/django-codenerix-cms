@@ -28,7 +28,7 @@ from django.db.models import Q
 from django.forms.utils import ErrorList
 from django.http import HttpResponse
 from django.utils.decorators import method_decorator
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 
 from django.conf import settings
 from codenerix.multiforms import MultiForm
