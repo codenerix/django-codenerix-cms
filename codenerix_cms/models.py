@@ -2,7 +2,7 @@
 #
 # django-codenerix-cms
 #
-# Copyright 2017 Centrologic Computational Logistic Center S.L.
+# Codenerix GNU
 #
 # Project URL : http://www.codenerix.com
 #
@@ -24,8 +24,8 @@ import unicodedata
 
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models, IntegrityError
-from django.utils.encoding import smart_text
-from django.utils.translation import ugettext_lazy as _
+from django.utils.encoding import smart_str
+from django.utils.translation import gettext_lazy as _
 from django.template import Context, Template
 from django.conf import settings
 
@@ -244,7 +244,7 @@ def calculate_slug(title, slug_origin, Model, pk):
         slug = pattern.sub('', name).lower()
     else:
         slug = slug_origin.lower()
-    slug = ''.join((c for c in unicodedata.normalize('NFD', smart_text(slug)) if unicodedata.category(c) != 'Mn'))
+    slug = ''.join((c for c in unicodedata.normalize('NFD', smart_str(slug)) if unicodedata.category(c) != 'Mn'))
     while Model.objects.filter(slug=slug).exclude(pk=pk).exists():
         slug += '_'
     return slug
@@ -313,7 +313,7 @@ class TemplateStaticPage(CodenerixModel):
     tile = models.TextField(_('Tile'), blank=False, null=False)
 
     def __str__(self):
-        return u"{}".format(smart_text(self.name))
+        return u"{}".format(smart_str(self.name))
 
     def __unicode__(self):
         return self.__str__()
@@ -412,9 +412,9 @@ class StaticPageAuthor(CodenerixModel):
 
     def __str__(self):
         if hasattr(self, 'external'):
-            return u"{}".format(smart_text(self.external.CDNXCMS_get_summary()))
+            return u"{}".format(smart_str(self.external.CDNXCMS_get_summary()))
         else:
-            return u"{}".format(smart_text(_('No data!')))
+            return u"{}".format(smart_str(_('No data!')))
 
     def __unicode__(self):
         return self.__str__()
@@ -449,7 +449,7 @@ class StaticPage(CodenerixModel):
         return fields
 
     def __str__(self):
-        return u"{} ({})".format(smart_text(self.template), self.status)
+        return u"{} ({})".format(smart_str(self.template), self.status)
 
     def __unicode__(self):
         return self.__str__()

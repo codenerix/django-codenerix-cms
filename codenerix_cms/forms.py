@@ -2,7 +2,7 @@
 #
 # django-codenerix-cms
 #
-# Copyright 2017 Centrologic Computational Logistic Center S.L.
+# Codenerix GNU
 #
 # Project URL : http://www.codenerix.com
 #
@@ -20,7 +20,7 @@
 
 from django import forms
 from django.forms import ValidationError
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from django.conf import settings
 
 from codenerix.forms import GenModelForm

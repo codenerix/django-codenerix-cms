@@ -2,7 +2,7 @@
 #
 # django-codenerix-cms
 #
-# Copyright 2017 Centrologic Computational Logistic Center S.L.
+# Codenerix GNU
 #
 # Project URL : http://www.codenerix.com
 #
@@ -24,7 +24,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render
 from django.template import TemplateDoesNotExist
 from django.template.loader import get_template
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 from django.utils.safestring import mark_safe
 
 from codenerix_cms.models import Slider, Staticheader

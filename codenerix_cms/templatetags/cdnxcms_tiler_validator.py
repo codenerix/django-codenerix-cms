@@ -2,7 +2,7 @@
 #
 # django-codenerix-cms
 #
-# Copyright 2017 Centrologic Computational Logistic Center S.L.
+# Codenerix GNU
 #
 # Project URL : http://www.codenerix.com
 #
@@ -20,7 +20,7 @@
 import json
 from django import template
 
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 from django.utils.safestring import mark_safe
 
 from codenerix_cms.models import VALID_TYPE_TEMPLATE
