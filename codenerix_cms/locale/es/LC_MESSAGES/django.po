@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-23 10:14+0100\n"
+"POT-Creation-Date: 2022-05-17 15:46+0200\n"
 "PO-Revision-Date: 2017-11-23 10:04-0015\n"
 "Last-Translator: b'nombe apellidos <soleronline@gmail.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -191,52 +191,56 @@ msgstr "El campo %(field)s no ha sido declarado, solo puedo ver: %(fields)s"
 msgid "Any type has been declared."
 msgstr "Ningún tipo ha sido declarado"
 
-#: codenerix_cms/templatetags_tags.py:79 codenerix_cms/templatetags_tags.py:161
+#: codenerix_cms/templatetags_tags.py:79 codenerix_cms/templatetags_tags.py:167
 msgid "Template not found"
 msgstr "Plantilla no encontrada"
 
-#: codenerix_cms/templatetags_tags.py:91
+#: codenerix_cms/templatetags_tags.py:97
 msgid "Identifier don't found"
 msgstr "Identificador no encontrado"
 
-#: codenerix_cms/templatetags_tags.py:178
+#: codenerix_cms/templatetags_tags.py:190
 msgid "Identifier dont found"
 msgstr "Identificador no encontrado"
 
-#: codenerix_cms/views.py:60
-msgid "Slider Group"
-msgstr "Grupo de sliders"
+#: codenerix_cms/views.py:60 codenerix_cms/views.py:205
+#: codenerix_cms/views.py:260 codenerix_cms/views.py:366
+#: codenerix_cms/views.py:398 codenerix_cms/views.py:429
+msgid "CMS"
+msgstr ""
 
 #: codenerix_cms/views.py:60
-msgid "slider group"
+#, fuzzy
+#| msgid "slider group"
+msgid "Slider group"
 msgstr "grupo de sliders"
 
 #: codenerix_cms/views.py:96
 msgid "Sliders"
 msgstr "Sliders"
 
-#: codenerix_cms/views.py:193
+#: codenerix_cms/views.py:205
 msgid "StaticheaderGroup"
 msgstr "Grupo de cabeceras estáticas"
 
-#: codenerix_cms/views.py:193 codenerix_cms/views.py:248
-#: codenerix_cms/views.py:342 codenerix_cms/views.py:374
-#: codenerix_cms/views.py:405
-msgid "People"
-msgstr "Gente"
-
-#: codenerix_cms/views.py:229
+#: codenerix_cms/views.py:241
 msgid "Elements"
 msgstr "Elementos"
 
-#: codenerix_cms/views.py:248
+#: codenerix_cms/views.py:260
 msgid "StaticheaderElement"
 msgstr "Elementos de cabecera estáticas"
 
-#: codenerix_cms/views.py:342 codenerix_cms/views.py:405
+#: codenerix_cms/views.py:366 codenerix_cms/views.py:429
 msgid "StaticPage"
 msgstr "Página estática"
 
-#: codenerix_cms/views.py:374
+#: codenerix_cms/views.py:398
 msgid "StaticPageAuthor"
 msgstr "Autor de páginas estáticas"
+
+#~ msgid "Slider Group"
+#~ msgstr "Grupo de sliders"
+
+#~ msgid "People"
+#~ msgstr "Gente"
