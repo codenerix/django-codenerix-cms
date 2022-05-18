@@ -14,6 +14,8 @@ Demo
 
 Coming soon...
 
+You can get in touch with us `here <https://codenerix.com/contact/>`_.
+
 **********
 Quickstart
 **********
@@ -29,27 +31,4 @@ Quickstart
         ...
         'codenerix_extensions',
         'codenerix_cms',
-    ]
-
-3. For use StaticPage, you must create a bridge inheriting from GenStaticPage, and implementing the methods::
-
-    * CDNXCMS_get_fk_info_author: return a dictionary with the keys 'label' and 'related'.
-        - label: label translated for the input
-        - related: it is a string with related_name for genforeignkey
-    * CDNXCMS_get_name_related: return a string with the name of the model's field that contains the name of the author
-
-4. Since Codenerix CMS is a library, you only need to import its parts into your project and use them.
-
-*************
-Documentation
-*************
-
-Coming soon... do you help us? `Codenerix <https://www.codenerix.com/>`_
-
-You can chat with us `here <https://goo.gl/NgpzBh>`_.
-
-*******
-Credits
-*******
-
-This project has been possible thanks to `Codenerix <http://www.codenerix.com>`_.
+    >`_.
